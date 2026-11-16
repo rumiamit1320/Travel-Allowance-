@@ -2,7 +2,6 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.compose")
-    id("com.google.gms.google-services")
 }
 
 android {
@@ -36,4 +35,10 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
     debugImplementation("androidx.compose.ui:ui-tooling")
+}
+
+// Firebase configuration is optional for CI compilation. Apply the plugin only
+// when the developer has supplied app/google-services.json locally.
+if (file("google-services.json").exists()) {
+    apply(plugin = "com.google.gms.google-services")
 }
