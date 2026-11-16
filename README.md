@@ -4,7 +4,7 @@ Kotlin + Jetpack Compose Android application for GPS-based travel allowance trac
 
 ## Project source
 
-The complete Android Studio source project is stored in `TravelAllowanceManager-Completed.zip`. Extract it and open the `TravelAllowanceManager` directory in Android Studio.
+The complete Android Studio source project is stored in `TravelAllowanceManager-Completed.tar.xz`. Extract it and open the `TravelAllowanceManager` directory in Android Studio.
 
 ## Calculation rule
 
@@ -12,8 +12,8 @@ Combined road distance = Start → Destination + Destination → Return. Full TA
 
 ## Cloud and maps setup
 
-See the project README inside the ZIP for Firebase Authentication, Cloud Firestore, Google Maps SDK and Routes API setup. Do not commit real API keys or `google-services.json` to this public repository.
+See the project README inside the archive for Firebase Authentication, Cloud Firestore, Google Maps SDK and Routes API setup. Do not commit real API keys or `google-services.json` to this public repository.
 
 ## Build
 
-A GitHub Actions workflow extracts the project and runs `gradle assembleDebug` on pushes and pull requests. The workflow compiles the Android source without requiring Firebase runtime configuration; add your own `google-services.json` for a configured app build and runtime testing.
+The GitHub Actions workflow at `.github/workflows/android-ci.yml` extracts the archive and runs `gradle assembleDebug` on pushes and pull requests. The Google Services Gradle plugin is applied only when `app/google-services.json` exists, allowing CI to compile without exposing Firebase configuration. Add your own Firebase config and API keys for runtime testing.
